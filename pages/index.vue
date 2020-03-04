@@ -7,23 +7,25 @@
     />
     <whats-new
       class="mb-4"
-      date="2020年3月3日"
-      url="https://www.metro.tokyo.lg.jp/tosei/hodohappyo/press/2020/03/03/28.html"
-      text="新型コロナウイルスに関連した患者の発生について（第65報）"
+      date="2020年3月4日"
+      url="https://www.pref.mie.lg.jp/TOPICS/m0014900488.htm"
+      text="新型コロナウイルス感染症対策にかかる県備蓄マスクの配布について"
     />
+    <!--
     <StaticInfo
       class="mb-4"
       :url="'/flow'"
       :text="'自分や家族の症状に不安や心配があればまずは電話相談をどうぞ'"
       :btn-text="'相談の手順を見る'"
     />
+    -->
     <v-row class="DataBlock">
       <v-col cols="12" md="6" class="DataCard">
         <time-bar-chart
           title="陽性患者数"
           :chart-data="patientsGraph"
           :chart-option="option"
-          :date="Data.patients.date"
+          :date="Data.patients_summary.date"
           :unit="'人'"
         />
       </v-col>
@@ -36,22 +38,12 @@
           :info="sumInfoOfPatients"
         />
       </v-col>
-
       <v-col cols="12" md="6" class="DataCard">
         <time-bar-chart
-          title="新型コロナコールセンター相談件数"
-          :chart-data="contactsGraph"
+          title="検査件数"
+          :chart-data="inspectionsGraph"
           :chart-option="option"
-          :date="Data.contacts.date"
-          :unit="'件'"
-        />
-      </v-col>
-      <v-col cols="12" md="6" class="DataCard">
-        <time-bar-chart
-          title="帰国者・接触者電話相談センター相談件数"
-          :chart-data="querentsGraph"
-          :chart-option="option"
-          :date="Data.querents.date"
+          :date="Data.inspections_summary.date"
           :unit="'件'"
         />
       </v-col>
@@ -63,7 +55,7 @@
 import PageHeader from '@/components/PageHeader.vue'
 import TimeBarChart from '@/components/TimeBarChart.vue'
 import WhatsNew from '@/components/WhatsNew.vue'
-import StaticInfo from '@/components/StaticInfo.vue'
+// import StaticInfo from '@/components/StaticInfo.vue'
 import Data from '@/data/data.json'
 import DataTable from '@/components/DataTable.vue'
 import formatGraph from '@/utils/formatGraph'
@@ -74,7 +66,7 @@ export default {
     PageHeader,
     TimeBarChart,
     WhatsNew,
-    StaticInfo,
+    // StaticInfo,
     DataTable
   },
   data() {
@@ -82,14 +74,8 @@ export default {
     const patientsGraph = formatGraph(Data.patients_summary.data)
     // 感染者数
     const patientsTable = formatTable(Data.patients.data)
-    // 退院者グラフ
-    const dischargesGraph = formatGraph(Data.discharges_summary.data)
-    // 退院者数
-    const dischargesTable = formatTable(Data.discharges.data)
-    // 相談件数
-    const contactsGraph = formatGraph(Data.contacts.data)
-    // 帰国者・接触者電話相談センター相談件数
-    const querentsGraph = formatGraph(Data.querents.data)
+    // 検査件数
+    const inspectionsGraph = formatGraph(Data.inspections_summary.data)
     // 死亡者数
     // #MEMO: 今後使う可能性あるので一時コメントアウト
     // const fatalitiesTable = formatTable(
@@ -108,14 +94,11 @@ export default {
       Data,
       patientsTable,
       patientsGraph,
-      dischargesTable,
-      dischargesGraph,
-      contactsGraph,
-      querentsGraph,
+      inspectionsGraph,
       sumInfoOfPatients,
       headerItem: {
         icon: 'mdi-chart-timeline-variant',
-        title: '都内の最新感染動向',
+        title: '県内の最新感染動向',
         date: Data.lastUpdate
       },
       option: {
@@ -168,7 +151,7 @@ export default {
   },
   head() {
     return {
-      title: '都内の最新感染動向'
+      title: '県内の最新感染動向'
     }
   }
 }

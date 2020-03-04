@@ -61,19 +61,19 @@
 <i18n>
 {
   "ja": {
-    "Tokyo": "東京都",
+    "Tokyo": "三重県",
     "COVID-19": "新型コロナウイルス",
     "Measures site": "対策サイト",
-    "Tokyo Metropolitan Government": "東京都",
+    "Tokyo Metropolitan Government": "三重県",
     "Tokyo COVID-19 Task Force": "新型コロナウイルス感染症対策本部",
-    "The latest updates": "都内の最新感染動向",
+    "The latest updates": "県内の最新感染動向",
     "If you have any symptoms": "新型コロナウイルス感染症が心配なときに",
     "for Families with children": "お子様をお持ちの皆様へ",
-    "for Citizens": "都民の皆様へ",
+    "for Citizens": "県民の皆様へ",
     "for Enterprises and Employees": "企業の皆様・働く皆様へ",
-    "Official statements from Task Force": "東京都新型コロナイルス感染症対策本部報",
-    "Cancelled public events": "【東京都主催等】中止または延期するイベント・説明会等",
-    "Government official website": "東京都公式ホームページ",
+    "Official statements from Task Force": "三重県新型コロナイルス感染症対策本部報",
+    "Cancelled public events": "【三重県主催等】中止または延期するイベント・説明会等",
+    "Government official website": "三重県公式ホームページ",
     "Message from Governor Koike": "知事からのメッセージ",
     "About us": "当サイトについて"
   }
